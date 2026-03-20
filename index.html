@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS2108 Audio Visualizer & Learner</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <h1>Fourier Audio Learner</h1>
+
+    <div class="hero-container">
+        <div class="hero-col">
+            <h2 style="color: #00ff64;">1. Original Signal</h2>
+            <canvas id="waveform-visualizer" width="800" height="400" style="border-color: #00ff64;"></canvas>
+            <button id="btn-play-original" class="btn btn-green">Play Original</button>
+            <div id="tones-container" class="controls-stack"></div>
+        </div>
+
+        <div class="hero-col">
+            <h2 style="color: #ff0055;">2. Frequency Spectrum</h2>
+            <canvas id="spectrum-visualizer" width="800" height="400" style="border-color: #ff0055;"></canvas>
+            <div style="margin-top: 15px; padding: 10px; background: #2a2a2a; border-radius: 6px;">
+                <p style="margin-top: 0; font-size: 0.9em; color: #ccc;">Select peaks to reconstruct:</p>
+                <div id="reconstruction-controls" class="recon-stack"></div>
+            </div>
+        </div>
+
+        <div class="hero-col">
+            <h2 style="color: #00aaff;">3. Reconstructed Signal</h2>
+            <canvas id="reconstructed-visualizer" width="800" height="400" style="border-color: #00aaff;"></canvas>
+            <button id="btn-play-recon" class="btn btn-blue">Play Reconstructed</button>
+            <p style="font-size: 0.9em; color: #aaa; margin-top: 20px;">
+                Listen to how removing specific frequencies mathematically alters the final sound wave.
+            </p>
+        </div>
+    </div>
+
+    <div class="analysis-section">
+        <h2 style="color: #ffaa00;">4. Real-Time Fourier Analysis (Microphone)</h2>
+        <div class="analysis-layout">
+            <div class="analysis-controls">
+                <button id="btn-start-mic" class="btn btn-orange">Start Microphone</button>
+                <p class="instr">Whistle, hum, or click to see how real-world sounds decompose into frequency peaks.</p>
+                <div class="stat-box">
+                    <span>Dominant Frequency:</span>
+                    <span id="dominant-freq">--- Hz</span>
+                </div>
+            </div>
+            <canvas id="mic-spectrogram" width="1200" height="300"></canvas>
+        </div>
+    </div>
+
+</body>
+</html>
